@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c14_sat/ui/screens/home/home.dart';
+import 'package:islami_c14_sat/ui/screens/splash/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      home: Splash(),
+      routes: {
+        "home": (_) => Home()
+      },
+    );
   }
 }
