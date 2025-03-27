@@ -2,14 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:islami_c14_sat/ui/utils/app_assets.dart';
 import 'package:islami_c14_sat/ui/utils/app_routes.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
   const Splash({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(context, AppRoutes.home);
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Image.asset(
         AppAssets.splash,

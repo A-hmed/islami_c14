@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c14_sat/ui/model/sura.dart';
 import 'package:islami_c14_sat/ui/screens/home/home.dart';
 import 'package:islami_c14_sat/ui/screens/splash/splash.dart';
+import 'package:islami_c14_sat/ui/utils/constants.dart';
 
 void main() {
+  for (int i = 0; i < Constants.arabicQuranSuras.length; i++) {
+    Constants.suras.add(
+      Sura(
+        nameEn: Constants.englishQuranSuras[i],
+        nameAr: Constants.arabicQuranSuras[i],
+        verses: Constants.surasVerses[i],
+        quranIndex: i + 1,
+      ),
+    );
+  }
   runApp(const MyApp());
 }
 
@@ -12,10 +24,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Splash(),
-      routes: {
-        "home": (_) => Home()
-      },
+      // theme: ThemeData(
+      //   canvasColor: Colors.black,
+      //
+      // ),
     );
   }
 }
